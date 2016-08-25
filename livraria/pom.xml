@@ -64,6 +64,15 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>br.com.alura</groupId>
+			<artifactId>alura-ioc</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>/Users/Nando/.m2/repository/br/com/alura/alura-ioc/0.0.1-SNAPSHOT/alura-ioc-0.0.1-SNAPSHOT.jar</systemPath>
+		</dependency>
+
+
 	</dependencies>
 
 	<repositories>

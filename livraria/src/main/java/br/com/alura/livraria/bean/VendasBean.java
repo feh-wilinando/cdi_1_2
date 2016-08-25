@@ -6,12 +6,13 @@ import java.util.List;
 import java.util.Random;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.ChartSeries;
 
-import br.com.alura.livraria.dao.DAO;
+import br.com.alura.alura_ioc.jpa.DAO;
 import br.com.alura.livraria.modelo.Livro;
 import br.com.alura.livraria.modelo.Venda;
 
@@ -22,6 +23,9 @@ public class VendasBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+	@Inject
+	private DAO<Livro,Integer> livroDao;
+	
 	public BarChartModel getVendasModel() {
 
 		BarChartModel model = new BarChartModel();
@@ -51,7 +55,7 @@ public class VendasBean implements Serializable{
 
 	public List<Venda> getVendas(long seed) {
 
-		List<Livro> livros = new DAO<Livro>(Livro.class).listaTodos();
+		List<Livro> livros =livroDao.listaTodos();
 		List<Venda> vendas = new ArrayList<Venda>();
 
 		Random random = new Random(seed);
