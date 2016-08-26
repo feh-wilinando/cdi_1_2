@@ -34,6 +34,8 @@ public class LoginBean implements Serializable {
 	}
 	
 	public String efetuaLogin() {
+		System.out.println("UsuarioDAO ----> " + usuarioDao.toString());
+		
 		System.out.println("fazendo login do usuario " + this.usuario.getEmail());
 		
 		
@@ -52,4 +54,6 @@ public class LoginBean implements Serializable {
 		context.getExternalContext().getSessionMap().remove("usuarioLogado");
 		return "login?faces-redirect=true";
 	}
+	
+	
 }

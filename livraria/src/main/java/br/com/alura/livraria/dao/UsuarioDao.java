@@ -1,14 +1,17 @@
 package br.com.alura.livraria.dao;
 
-import javax.enterprise.inject.Specializes;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
-import br.com.alura.alura4ioc.jpa.DAO;
 import br.com.alura.livraria.modelo.Usuario;
 
-@Specializes
-public class UsuarioDao extends DAO<Usuario, Integer> {
+
+public class UsuarioDao {
+
+	@Inject
+	private EntityManager manager;
 
 	public boolean existe(Usuario usuario) {
 		

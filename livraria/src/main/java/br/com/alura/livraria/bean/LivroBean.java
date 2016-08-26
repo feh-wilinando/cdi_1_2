@@ -3,6 +3,7 @@ package br.com.alura.livraria.bean;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -21,10 +22,10 @@ import br.com.alura.livraria.modelo.Livro;
 public class LivroBean implements Serializable {
 	
 	@Inject
-	private DAO<Livro,Integer> livroDao;
+	private DAO<Livro, Integer> livroDao;
 
 	@Inject
-	private DAO<Autor,Integer> autorDao;
+	private DAO<Autor, Integer> autorDao;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -124,4 +125,11 @@ public class LivroBean implements Serializable {
 		}
 
 	}
+	
+	
+	@PostConstruct
+	public void load(){
+		System.out.println("=================\n LivroBean");
+	}
+	
 }

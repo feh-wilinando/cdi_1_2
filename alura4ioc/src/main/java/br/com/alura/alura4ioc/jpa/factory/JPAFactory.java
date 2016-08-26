@@ -1,5 +1,7 @@
 package br.com.alura.alura4ioc.jpa.factory;
 
+import java.io.Serializable;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Disposes;
@@ -9,7 +11,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 @ApplicationScoped
-public class JPAFactory {
+public class JPAFactory implements Serializable {
+
+	private static final long serialVersionUID = -6118766022119863783L;
 
 	private EntityManagerFactory emf = Persistence
 			.createEntityManagerFactory("livraria");

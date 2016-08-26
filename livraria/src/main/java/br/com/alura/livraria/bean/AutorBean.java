@@ -23,8 +23,7 @@ public class AutorBean implements Serializable{
 	private Integer autorId;
 	
 	@Inject
-	private DAO<Autor,Integer> autorDao;
-	
+	private DAO<Autor, Integer> autorDao;
 	
 
 	public Integer getAutorId() {

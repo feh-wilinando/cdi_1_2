@@ -24,7 +24,7 @@ public class VendasBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private DAO<Livro,Integer> livroDao;
+	private DAO<Livro, Integer> livroDao;
 	
 	public BarChartModel getVendasModel() {
 
