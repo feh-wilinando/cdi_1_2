@@ -1,4 +1,4 @@
-package br.com.alura.alura_ioc.jsf.helper;
+package br.com.alura.alura4ioc.jsf.helper;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;

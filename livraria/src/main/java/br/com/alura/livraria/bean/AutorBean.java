@@ -7,7 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.com.alura.alura_ioc.jpa.DAO;
+import br.com.alura.alura4ioc.jpa.DAO;
 import br.com.alura.livraria.modelo.Autor;
 
 

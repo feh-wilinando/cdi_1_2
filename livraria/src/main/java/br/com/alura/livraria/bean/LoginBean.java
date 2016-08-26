@@ -8,7 +8,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.com.alura.alura_ioc.jsf.helper.MessageHelper;
+import br.com.alura.alura4ioc.jsf.helper.MessageHelper;
 import br.com.alura.livraria.dao.UsuarioDao;
 import br.com.alura.livraria.modelo.Usuario;
 

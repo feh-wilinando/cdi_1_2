@@ -1,4 +1,4 @@
-package br.com.alura.alura_ioc.jsf.factory;
+package br.com.alura.alura4ioc.jsf.factory;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;

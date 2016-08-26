@@ -1,20 +1,18 @@
 package br.com.alura.livraria.dao;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
+import javax.enterprise.inject.Specializes;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
+import br.com.alura.alura4ioc.jpa.DAO;
 import br.com.alura.livraria.modelo.Usuario;
 
-public class UsuarioDao {
+@Specializes
+public class UsuarioDao extends DAO<Usuario, Integer> {
 
-	@Inject
-	private EntityManager em;
-	
 	public boolean existe(Usuario usuario) {
 		
-		TypedQuery<Usuario> query = em.createQuery(
+		TypedQuery<Usuario> query = manager.createQuery(
 				  " select u from Usuario u "
 				+ " where u.email = :pEmail and u.senha = :pSenha", Usuario.class);
 		

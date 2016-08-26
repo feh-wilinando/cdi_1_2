@@ -1,21 +1,24 @@
-package br.com.alura.alura_ioc.jpa;
+package br.com.alura.alura4ioc.jpa;
 
 import java.util.List;
 
-import javax.enterprise.inject.Vetoed;
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
-@Vetoed
 public class DAO<T, P> {
 
-	private EntityManager manager;
 	private Class<T> classe;
+	protected EntityManager manager;
 
+	public DAO(){}
+	
+	@Inject
 	public DAO(Class<T> classe, EntityManager manager) {
 		this.classe = classe;
-		this.manager = manager;
+		this.manager = manager;		
 	}
 
 	public void adiciona(T t) {
@@ -78,6 +81,11 @@ public class DAO<T, P> {
 		List<T> lista = manager.createQuery(query).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
 
 		return lista;
+	}
+	
+	@PostConstruct
+	private void load(){
+		System.out.println("=============================> Construindo DAO");
 	}
 
 }
