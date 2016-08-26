@@ -33,9 +33,7 @@ public class LoginBean implements Serializable {
 		return usuario;
 	}
 	
-	public String efetuaLogin() {
-		System.out.println("UsuarioDAO ----> " + usuarioDao.toString());
-		
+	public String efetuaLogin() {		
 		System.out.println("fazendo login do usuario " + this.usuario.getEmail());
 		
 		

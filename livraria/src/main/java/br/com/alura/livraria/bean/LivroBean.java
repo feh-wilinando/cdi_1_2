@@ -3,7 +3,6 @@ package br.com.alura.livraria.bean;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -126,10 +125,5 @@ public class LivroBean implements Serializable {
 
 	}
 	
-	
-	@PostConstruct
-	public void load(){
-		System.out.println("=================\n LivroBean");
-	}
 	
 }
