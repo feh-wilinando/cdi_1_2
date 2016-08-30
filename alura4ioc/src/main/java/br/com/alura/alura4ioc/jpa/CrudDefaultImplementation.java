@@ -8,14 +8,14 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
 @Vetoed
-public class DefaultDAO<T, P> implements DAO<T,P> {
+public class CrudDefaultImplementation<T, P> implements Crud<T,P> {
 
 	private static final long serialVersionUID = 6485692981477733630L;
 	
 	private Class<T> classe;
 	protected EntityManager manager;
 		
-	public DefaultDAO(Class<T> classe, EntityManager manager) {	
+	public CrudDefaultImplementation(Class<T> classe, EntityManager manager) {	
 		this.classe = classe;
 		this.manager = manager;		
 	}
@@ -23,34 +23,23 @@ public class DefaultDAO<T, P> implements DAO<T,P> {
 	
 	@Override
 	public void adiciona(T t) {
-
-		// abre transacao
-		manager.getTransaction().begin();
-
-		// persiste o objeto
+		
 		manager.persist(t);
-
-		// commita a transacao
-		manager.getTransaction().commit();
-
+		
 	}
 
 	@Override
 	public void remove(T t) {
-		manager.getTransaction().begin();
 
 		manager.remove(manager.merge(t));
 
-		manager.getTransaction().commit();
 	}
 
 	@Override
 	public void atualiza(T t) {
-		manager.getTransaction().begin();
 
 		manager.merge(t);
 
-		manager.getTransaction().commit();
 	}
 
 	@Override

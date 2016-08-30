@@ -7,7 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.com.alura.alura4ioc.jpa.DAO;
+import br.com.alura.alura4ioc.jpa.Crud;
 import br.com.alura.livraria.modelo.Autor;
 
 
@@ -23,7 +23,7 @@ public class AutorBean implements Serializable{
 	private Integer autorId;
 	
 	@Inject
-	private DAO<Autor, Integer> autorDao;
+	private Crud<Autor, Integer> autorDao;
 	
 
 	public Integer getAutorId() {

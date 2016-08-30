@@ -3,7 +3,7 @@ package br.com.alura.alura4ioc.jpa;
 import java.io.Serializable;
 import java.util.List;
 
-public interface DAO<T,P> extends Serializable {
+public interface Crud<T,P> extends Serializable {
 
 	void adiciona(T entity);
 	void remove(T entity);

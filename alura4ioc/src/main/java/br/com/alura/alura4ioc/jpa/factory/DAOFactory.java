@@ -8,8 +8,8 @@ import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import br.com.alura.alura4ioc.jpa.DAO;
-import br.com.alura.alura4ioc.jpa.DefaultDAO;
+import br.com.alura.alura4ioc.jpa.Crud;
+import br.com.alura.alura4ioc.jpa.CrudDefaultImplementation;
 
 @SuppressWarnings("unchecked")
 public class DAOFactory implements Serializable {
@@ -20,11 +20,11 @@ public class DAOFactory implements Serializable {
 	private EntityManager manager;
 	
 	@Produces
-	public <T,P> DAO<T,P> getDao(InjectionPoint point){
+	public <T,P> Crud<T,P> getDao(InjectionPoint point){
 		
 		ParameterizedType type = (ParameterizedType) point.getType();
 		 Class<T> classe = (Class<T>) type.getActualTypeArguments()[0];
-		 return new DefaultDAO<>(classe, manager);
+		 return new CrudDefaultImplementation<>(classe, manager);
 		
 	}
 	

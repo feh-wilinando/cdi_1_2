@@ -11,20 +11,22 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.com.alura.alura4ioc.jpa.DAO;
+import br.com.alura.alura4ioc.jpa.Crud;
+import br.com.alura.alura4ioc.jpa.interceptor.annotation.Transacional;
 import br.com.alura.alura4ioc.jsf.helper.MessageHelper;
 import br.com.alura.livraria.modelo.Autor;
 import br.com.alura.livraria.modelo.Livro;
 
 @Named
 @ViewScoped
+//@CicloDeVida
 public class LivroBean implements Serializable {
 	
 	@Inject
-	private DAO<Livro, Integer> livroDao;
+	private Crud<Livro, Integer> livroDao;
 
 	@Inject
-	private DAO<Autor, Integer> autorDao;
+	private Crud<Autor, Integer> autorDao;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -74,6 +76,7 @@ public class LivroBean implements Serializable {
 		System.out.println("Escrito por: " + autor.getNome());
 	}
 
+	@Transacional
 	public void gravar() {
 		System.out.println("Gravando livro " + this.livro.getTitulo());
 
@@ -94,6 +97,7 @@ public class LivroBean implements Serializable {
 		this.livro = new Livro();
 	}
 
+	@Transacional
 	public void remover(Livro livro) {
 		System.out.println("Removendo livro");
 		livroDao.remove(livro);

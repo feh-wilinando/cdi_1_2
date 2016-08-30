@@ -12,7 +12,7 @@ import javax.inject.Named;
 import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.ChartSeries;
 
-import br.com.alura.alura4ioc.jpa.DAO;
+import br.com.alura.alura4ioc.jpa.Crud;
 import br.com.alura.livraria.modelo.Livro;
 import br.com.alura.livraria.modelo.Venda;
 
@@ -24,7 +24,7 @@ public class VendasBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private DAO<Livro, Integer> livroDao;
+	private Crud<Livro, Integer> livroDao;
 	
 	public BarChartModel getVendasModel() {
 
